@@ -1,8 +1,8 @@
 class FavoritesController < ApplicationController
   def create
-    fp = FavoriteProject.new
-    fp.user = current_user
-    fp.project = Project.where(id: params[:project_id]).first
+    project = Project.where(id: params[:project_id]).first
+    fp = FavoriteProject.first_or_initialize(user: current_user, project: project)
+    fp.removed = false
 
     respond_to do |format|
       format.json { render json: fp.save.to_json }

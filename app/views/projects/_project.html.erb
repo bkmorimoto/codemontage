@@ -3,7 +3,7 @@
     <h5><%= link_to project.name, project_path(project) %>
       <span class="favorite">
         <% if user_signed_in? %>
-          <% if current_user.favorite_projects.active.include?(project.id) %>
+          <% if current_user.favorited_projects.include?(project.id) %>
             <%= link_to '<i class="fi-star large"></i> '.html_safe, dashboard_path, :class => "favorited" %>
             <%= button_to "Remove", remove_favorite_path(:id => current_user.favorite_projects.where(project_id: project.id).first), :method => :put, :remote => true, :class => "favorite radius button" %>
           <% else %>

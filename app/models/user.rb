@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
   end
 
   def favorited_projects
-    favorite_projects.map(&:project_id).to_set
+    favorite_projects.active.map(&:project_id).to_set
   end
 
   def github_api_args
