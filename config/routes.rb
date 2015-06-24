@@ -19,7 +19,11 @@ CodeMontage::Application.routes.draw do
   resources :jobs
   resources :organizations
   resources :projects
-  resources :favorites
+  resources :favorites do
+    member do
+      put 'remove'
+    end
+  end
   resources :events
 
   # Static content
