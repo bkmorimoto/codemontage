@@ -53,7 +53,7 @@ APP = {
 		index: function() {
 			$("form.button_to")
 				.bind("ajax:beforeSend", function(e, xhr) {
-					$(e.target).parent("span.favorite").html('<a href="/dashboard"><i class="fi-star"></i></a>');
+					$(e.target).parent("span.favorite").html('<a href="/dashboard"><i class="fi-star large"></i></a>');
 				});
 		}
 	}

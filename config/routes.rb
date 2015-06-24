@@ -20,9 +20,7 @@ CodeMontage::Application.routes.draw do
   resources :organizations
   resources :projects
   resources :favorites do
-    member do
-      put 'remove'
-    end
+    put 'remove', on: :collection
   end
   resources :events
 
