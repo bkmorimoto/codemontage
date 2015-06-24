@@ -8,4 +8,14 @@ class FavoritesController < ApplicationController
       format.json { render json: fp.save.to_json }
     end
   end
+
+  def remove
+    fp = FavoriteProject.find(params[:id])
+    fp.removed = true
+
+    respond_to do |format|
+      format.json { render json: fp.save.to_json }
+    end
+  end
+
 end
