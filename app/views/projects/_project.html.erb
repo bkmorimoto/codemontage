@@ -4,12 +4,13 @@
       <span class="favorite">
         <% if user_signed_in? %>
           <% if current_user.favorited_projects.include?(project.id) %>
-            <%= link_to '<i class="fi-star"></i> '.html_safe, dashboard_path, :class => "favorited" %>
+            <%= link_to '<i class="fi-star large"></i> '.html_safe, dashboard_path, :class => "favorited" %>
+            <%= button_to "Remove", favorites_path(:project_id => project.id), :remote => true, :class => "favorite radius button" %>
           <% else %>
             <%= button_to "Save", favorites_path(:project_id => project.id), :remote => true, :class => "favorite radius button" %>
           <% end %>
         <% else %>
-          <%= link_to '<i class="fi-star"></i> '.html_safe + "Save", new_user_session_path, :target => '_blank' %>
+          <%= link_to '<i class="fi-star medium"></i> '.html_safe + "Save", new_user_session_path, :target => '_blank' %>
         <% end %>
       </span>
     </h5>
